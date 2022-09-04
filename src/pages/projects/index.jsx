@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {graphql, Link} from 'gatsby';
-import {GatsbyImage, getImage} from "gatsby-plugin-image"
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import { AiOutlineOrderedList } from "react-icons/ai";
 import Layout from '../../components/Layout';
 import '../../styles/projects.scss';
 
 const Index = ({data}) => {
+        const [showList, setShowList] = useState(false);
+
+        const handlesShowList = () => {
+            setShowList(current => !current)
+        }
+        console.log(showList);
+
+
     const projects = data.allMarkdownRemark.nodes;
     const contact = data.site.siteMetadata.contact;
 
@@ -37,7 +46,7 @@ const Index = ({data}) => {
                             </article>
                         ))}
                     </div>
-                    <div className='articles-links'>
+                    <div className={showList ? 'articles-links active' : 'articles-links'}>
                         <ul>
                             {projects.map(project => (
                                 <li>
@@ -47,9 +56,10 @@ const Index = ({data}) => {
                                 </li>
                             ))}
                         </ul>
+                    <AiOutlineOrderedList onClick={handlesShowList}/>
                     </div>
                 </div>
-                <p>Random mail from siteMetadata: {contact}</p>
+                <p>Random mail siteMetadata: {contact}</p>
             </section>
         </Layout>
     );

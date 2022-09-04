@@ -31,8 +31,14 @@
                 border-radius: 20px;
                 display: flex;
 
+                @media (max-width: 576px) {
+                    margin: 0 0 20px;
+                    padding: 10px 5px;
+                }
+
                 a {
                     margin-right: 20px;
+                    align-self: center;
 
                     .image {
                         height: 150px;
@@ -40,12 +46,20 @@
                         border-radius: 10px;
                         border: 2px solid aliceblue;
 
+                        @media (max-width: 576px) {
+                            height: 100px;
+                            width: 100px;
+                        }
                     }
                 }
 
                 h2 {
                     text-decoration: underline 1px solid aliceblue;
                     text-underline-offset: 4px;
+
+                    @media (max-width: 576px) {
+                        font-size: 1.3em;
+                    }
                 }
 
             }
@@ -74,10 +88,28 @@
 
             @media (max-width: 1000px) {
                 position: fixed;
-                top: 10vh;
-                right: 0;
+                top: 15vh;
+                right: 100%;
                 // background-color: rgb(169, 169, 169, 0.9);
                 background: radial-gradient((at top left, rgba(146, 43, 225, 1) 0%, rgba(43, 9, 107, 1)100%));
+
+                &.active {
+                    right: 0;
+                }
+            }
+
+            svg {
+                position: fixed;
+                right: 0;
+                top: 15vh;
+                font-size: 44px;
+                border: 1px solid #eef7ff7a;
+                background-color: rgba(146, 43, 225, 1);
+                cursor: pointer;
+
+                @media (min-width: 1000px) {
+                    display: none;
+                }
             }
 
             ul {
@@ -93,6 +125,17 @@
                     margin-bottom: 10px;
                     font-size: 16px;
                     cursor: pointer;
+
+                    &:hover,
+                    &:hover a {
+                        color: pink;
+                    }
+
+                    @media (max-width: 576px) {
+                        font-size: 12px;
+                        letter-spacing: normal;
+
+                    }
 
                 }
             }
