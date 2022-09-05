@@ -11,8 +11,6 @@ const Index = ({data}) => {
         const handlesShowList = () => {
             setShowList(current => !current)
         }
-        console.log(showList);
-
 
     const projects = data.allMarkdownRemark.nodes;
     const contact = data.site.siteMetadata.contact;
@@ -31,14 +29,14 @@ const Index = ({data}) => {
                     <div className='articles'>
                         {projects.map(project => (
                             <article className='article' id={project.id}>
-                                <Link to={'/projects/' + project.frontmatter.slug} key={project.id}>
+                                <Link to={'/projects/' + project.frontmatter.slug}>
                                     <GatsbyImage
                                         image={getImage(project.frontmatter.thumb.childImageSharp.gatsbyImageData)}
                                         alt="Banner"
                                         className='image'/>
                                 </Link>
                                 <div>
-                                    <Link to={'/projects/' + project.frontmatter.slug} key={project.id}>
+                                    <Link to={'/projects/' + project.frontmatter.slug}>
                                         <h2>{project.frontmatter.title}</h2>
                                     </Link>
                                     <p>{project.frontmatter.stack}</p>
@@ -48,9 +46,9 @@ const Index = ({data}) => {
                     </div>
                     <div className={showList ? 'articles-links active' : 'articles-links'}>
                         <ul>
-                            {projects.map(project => (
-                                <li>
-                                    <Link to={`#${project.id}`} key={project.id}>
+                            {projects.map((project, i) => (
+                                <li key={i}>
+                                    <Link to={`#${project.id}`}>
                                         {project.frontmatter.title}
                                     </Link>
                                 </li>

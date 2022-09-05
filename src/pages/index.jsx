@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import '../styles/home.scss';
 
 export default function Home({data}) {
-    console.log(data);
+
     const image = getImage(data.file.childImageSharp.gatsbyImageData)
 
     return (
