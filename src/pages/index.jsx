@@ -12,7 +12,7 @@ export default function Home({data}) {
         <Layout>
             <section className="home">
                 <div className="info">
-                    <h1 className="hello">Hello Elo</h1>
+                    <h1 className="hello">Hello World</h1>
                     <h2>Develop & Deploy</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quod laboriosam
                         repellat nihil voluptates quos totam. Doloremque vel nostrum quibusdam?</p>
